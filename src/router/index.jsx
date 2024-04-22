@@ -6,11 +6,16 @@ import {
 
 import { LoginPage } from '../auth';
 import { MarvelPage, DcPage, SearchPage, HeroesApp, HeroPage } from '../heroes';
+import { PrivateRoute } from './PrivateRoute';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <HeroesApp />,
+        element: (
+            <PrivateRoute>
+                <HeroesApp />
+            </PrivateRoute>
+        ),
         children: [
             {
                 path: 'marvel',
